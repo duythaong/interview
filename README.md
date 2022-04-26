@@ -4,9 +4,9 @@ a) Hãy override các hàm transfer sao cho: nếu người gửi thuộc whitel
 
 b/ Viết hàm rescueToken, nhận tham số là địa chỉ address token ERC, chỉ Owner mới được quyền gọi hàm này. Khi gọi hàm này owner sẽ rút toàn bộ token balance có trong contract và chuyển về ví của mình. Nếu là address 0 thì rút native coin trên chain đó.
 
-2/ Viết một contract mới(hoặc viết trực tiếp trên contract NFT) và bổ sung thêm Package. Thông tin của một package gồm: giá của package, số lượng NFT trong package, và danh sách token(ERC20) có thể dùng để mua package này. Viết các hàm sau:
+2/ Viết một contract mới(hoặc viết trực tiếp trên contract NFT) và bổ sung thêm Package. Thông tin của một package gồm: số lượng NFT trong package, danh sách token(ERC20) có thể dùng để mua package này, và giá của Package tương ứng với từng loại token. Hãy viết các hàm sau:
 
-a) setPackage: Tạo mới/ cập nhật lại thông tin package đã có, bao gồm danh sách token được phép dùng để mua loại package này, và tương ứng với mỗi token là giá mua. Chỉ owner có thể gọi hàm này
+a) setPackage: Tạo mới/ cập nhật lại thông tin package đã có, bao gồm danh sách token được phép dùng để mua loại package này, và tương ứng với mỗi token là giá mua. Có thể tạo được nhiều loại Package khác nhau và chỉ owner có quyền gọi hàm này.
 
 b) buyPackage: User truyền vào loại package muốn mua, address token mà user sẽ trả để mua package. Nếu thoả các điều kiện(về giá, về tính hợp lệ của token) thì mint ra cho user tương ứng số lượng NFT của loại Package đó.
 
