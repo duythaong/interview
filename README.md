@@ -8,7 +8,7 @@ b/ Viết hàm rescueToken, nhận tham số là địa chỉ address token ERC,
 
 a) setPackage: Tạo mới/ cập nhật lại thông tin package đã có, bao gồm danh sách token được phép dùng để mua loại package này, và tương ứng với mỗi token là giá mua. Chỉ owner có thể gọi hàm này
 
-b) buyNFT: User truyền vào loại package muốn mua, address token mà user sẽ trả để mua package. Nếu thoả các điều kiện(về giá, về tính hợp lệ của token) thì mint ra cho user tương ứng số lượng NFT của loại Package đó.
+b) buyPackage: User truyền vào loại package muốn mua, address token mà user sẽ trả để mua package. Nếu thoả các điều kiện(về giá, về tính hợp lệ của token) thì mint ra cho user tương ứng số lượng NFT của loại Package đó.
 
 c) deletePaymentMethods: Huỷ bỏ không còn chấp nhận cho phép mua Package bằng token đã xét trước đó. Chỉ owner có thể gọi hàm này.
 
