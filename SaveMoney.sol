@@ -1,24 +1,34 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
 
+error SaveMoney__ZeroBalance();
+
 contract SaveMoney {
     mapping(address => uint) public userBalance;
 
-    function sendMoney() public payable {
+    function sendMoney() external payable {
         userBalance[msg.sender] += msg.value;
     }
 
-    function withdrawMoney() public {
-        uint balanace = userBalance[msg.sender];
-        require(balanace > 0);
+    function withdrawMoney() external {
+        uint balance = userBalance[msg.sender];
+        if (balance =) revert SaveMoney__ZeroBalance();
 
-        (bool sent, ) = msg.sender.call{value: balanace}("");
-        require(sent, "Failed to send Ether");
+        (bool success, bytes memory result) = payable(account_).call{value: balanace}(new bytes(0));
+        if (!success) revert(decode(result));
 
         userBalance[msg.sender] = 0;
     }
 
-    function getBalance() public view returns (uint) {
+    function getBalance() external view returns (uint256) {
         return address(this).balance;
+    }
+    
+    function decode(bytes memory result_) internal pure returns (string memory) {
+        if (result_.length < 68) return "";
+        assembly {
+            result_ := add(result_, 0x04)
+        }
+        return abi.decode(result_, (string));
     }
 }
