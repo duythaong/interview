@@ -1,4 +1,3 @@
-// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
 
 error SaveMoney__ZeroBalance();
@@ -12,9 +11,9 @@ contract SaveMoney {
 
     function withdrawMoney() external {
         uint balance = userBalance[msg.sender];
-        if (balance =) revert SaveMoney__ZeroBalance();
+        if (balance == 0) revert SaveMoney__ZeroBalance();
 
-        (bool success, bytes memory result) = payable(account_).call{value: balanace}(new bytes(0));
+        (bool success, bytes memory result) = payable(msg.sender).call{value: balance}(new bytes(0));
         if (!success) revert(decode(result));
 
         userBalance[msg.sender] = 0;
