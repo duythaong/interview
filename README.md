@@ -1,6 +1,6 @@
 1/ Cho contract NFT đã được cài đặt sẵn (Trong file NFT.sol). 
 
-a) Hãy override các hàm transfer sao cho: nếu người gửi thuộc whitelist addresses thì sẽ chuyển NFT bình thường, còn nếu không thuộc whitelist addresses thì sẽ bị thu phí token(ERC20). Việc cấu hình whitelist address, phí chuyển NFT và người nhận phần phí do contract owner quyết định.
+a) Chỉnh sửa hàm transfer, hoặc thêm hook sao cho nếu người gửi thuộc whitelist addresses thì sẽ chuyển NFT bình thường, còn nếu không thuộc whitelist addresses thì sẽ bị thu phí token(ERC20). Việc cấu hình whitelist address, phí chuyển NFT và người nhận phần phí do contract owner quyết định.
 
 b/ Viết hàm rescueToken, nhận tham số là địa chỉ address token ERC, chỉ Owner mới được quyền gọi hàm này. Khi gọi hàm này owner sẽ rút toàn bộ token balance có trong contract và chuyển về ví của mình. Nếu là address 0 thì rút native coin trên chain đó.
 
